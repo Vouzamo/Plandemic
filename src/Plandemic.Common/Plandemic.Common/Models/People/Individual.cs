@@ -14,6 +14,7 @@ namespace Plandemic.Common.Models.People
         [Required, MaxLength(32)]
         public string FamilyName { get; set; }
         public StringValues MiddleNames { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime? Birthday { get; set; }
         public List<RatedSkill> Skills { get; set; }

@@ -15,7 +15,7 @@ namespace Plandemic.Common.Models.People
 
         }
 
-        public Skill(string slug, string name, string description) : this()
+        public Skill(string slug, string name, string description = null) : this()
         {
             Slug = slug;
             Name = name;
