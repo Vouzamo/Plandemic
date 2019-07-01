@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Plandemic.Common.Models
 {
+
     public interface IIdentifiable<TId>
     {
         TId Id { get; set; }

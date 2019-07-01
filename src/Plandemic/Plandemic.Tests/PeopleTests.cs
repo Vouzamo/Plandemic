@@ -74,8 +74,7 @@ namespace Plandemic.Tests
 
             if(subject.TryGetAge(out int age))
             {
-                // This is a bad test as the age will increment every year.
-                Assert.AreEqual(35, age);
+                Assert.IsTrue(34 < age);
             }
 
             Assert.AreEqual(3, subject.Skills.Count());
