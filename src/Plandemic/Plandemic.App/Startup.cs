@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Plandemic.Common.Services;
+using Plandemic.App.Authorization;
+using Plandemic.App.Utilities;
+using Plandemic.Common.Utilities;
 using Plandemic.Providers.Elasticsearch;
 
 namespace Plandemic.App
@@ -25,10 +26,15 @@ namespace Plandemic.App
         {
             services.AddHttpContextAccessor();
 
-            services.AddSingleton<Common.Models.Multitenancy.ITenantAccessor, TenantAccessor>();
-
-            // Replace this with NuGet package instead of project reference
+            services.AddSingleton<ITenantAccessor, TenantAccessor>();
+            
             services.AddElasticsearchProvider();
+
+            services.AddAuthorization(options => options
+                .AddPolicy("Admin", policy => policy
+                    .Requirements.Add(new UserGroupRequirement("admin"))
+                )
+            );
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
@@ -60,6 +66,8 @@ namespace Plandemic.App
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

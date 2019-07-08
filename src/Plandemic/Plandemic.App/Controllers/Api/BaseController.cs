@@ -18,7 +18,7 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPageAsync(int page = 1, int? size = null)
+        public virtual async Task<IActionResult> GetPageAsync(int page = 1, int? size = null)
         {
             var response = await BaseService.GetPageAsync<T>(page, size);
 
@@ -26,7 +26,7 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAsync(Guid id)
+        public virtual async Task<IActionResult> GetAsync(Guid id)
         {
             var response = await BaseService.GetAsync<T>(id);
 
@@ -34,7 +34,7 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(Guid id, [FromBody] T source)
+        public virtual async Task<IActionResult> PutAsync(Guid id, [FromBody] T source)
         {
             var response = await BaseService.PutAsync(id, source);
 
@@ -42,7 +42,7 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] T source)
+        public virtual async Task<IActionResult> PostAsync([FromBody] T source)
         {
             var response = await BaseService.PostAsync(source);
 
@@ -50,7 +50,7 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public virtual async Task<IActionResult> DeleteAsync(Guid id)
         {
             var response = await BaseService.DeleteAsync<T>(id);
 

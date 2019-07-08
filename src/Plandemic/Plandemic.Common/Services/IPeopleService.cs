@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace Plandemic.Common.Services
 {
-
     public interface IPeopleService : IBaseService
     {
         Task<ApiResponse<Skill>> GetSkillBySlugAsync(string slug);

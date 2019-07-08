@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
-using Plandemic.Common.Models.Multitenancy;
+using Plandemic.Common.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Plandemic.App
+namespace Plandemic.App.Utilities
 {
     public class TenantAccessor : ITenantAccessor
     {

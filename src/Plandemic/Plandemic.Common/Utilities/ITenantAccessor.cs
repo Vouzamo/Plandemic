@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Plandemic.Common.Models.Multitenancy
+namespace Plandemic.Common.Utilities
 {
     public interface ITenantAccessor
     {

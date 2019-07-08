@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
 using Nest.JsonNetSerializer;
+using Plandemic.Common.Models.Multitenancy;
 using Plandemic.Common.Models.People;
 using Plandemic.Common.Services;
 using System;
@@ -16,6 +17,10 @@ namespace Plandemic.Providers.Elasticsearch
 
             var connectionSettings = new ConnectionSettings(connectionPool, JsonNetSerializer.Default);
 
+            connectionSettings.DefaultMappingFor<Tenant>(mapping => mapping
+                .IndexName("plandemic.multitenancy")
+            );
+
             connectionSettings.DefaultMappingFor<Individual>(mapping => mapping
                 .IndexName("plandemic.individuals")
                 .IdProperty(doc => doc.CompositeId)
@@ -25,6 +30,7 @@ namespace Plandemic.Providers.Elasticsearch
 
             services.AddSingleton<IElasticClient>(elasticClient);
 
+            services.AddSingleton<IMultitenancyService, MultitenancyService>();
             services.AddSingleton<IPeopleService, PeopleService>();
 
             return services;
