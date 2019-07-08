@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+    <PackageReference Include="NEST" Version="7.0.1" />
+    <PackageReference Include="NEST.JsonNetSerializer" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Plandemic.Common\Plandemic.Common.csproj" />
   </ItemGroup>
 

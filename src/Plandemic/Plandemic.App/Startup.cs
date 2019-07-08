@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Plandemic.Common.Services;
+using Plandemic.Providers.Elasticsearch;
 
 namespace Plandemic.App
 {
@@ -23,7 +24,7 @@ namespace Plandemic.App
         public void ConfigureServices(IServiceCollection services)
         {
             // Replace this with NuGet package instead of project reference
-            services.AddSingleton<IPeopleService, Providers.Elasticsearch.PeopleService>();
+            services.AddElasticsearchProvider();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)

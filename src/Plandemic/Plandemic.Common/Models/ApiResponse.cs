@@ -4,6 +4,7 @@ using System.Net;
 
 namespace Plandemic.Common.Models
 {
+
     public class ApiResponse
     {
         public HttpStatusCode Status { get; set; }
