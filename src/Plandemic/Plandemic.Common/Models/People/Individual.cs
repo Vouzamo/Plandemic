@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Plandemic.Common.Models.People
 {
-    public class Individual : Identifiable
+    public class Individual : IdentifiableMultitenant
     {
         [DataType(DataType.EmailAddress), Required]
         public string Email { get; set; }

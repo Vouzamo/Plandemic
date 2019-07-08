@@ -42,13 +42,14 @@ namespace Plandemic.App.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] T source, Guid id)
+        public async Task<IActionResult> PostAsync([FromBody] T source)
         {
             var response = await BaseService.PostAsync(source);
 
             return response.CreateResult();
         }
 
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
             var response = await BaseService.DeleteAsync<T>(id);

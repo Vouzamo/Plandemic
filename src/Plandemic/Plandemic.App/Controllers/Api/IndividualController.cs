@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
-using Plandemic.Common.Models.People;
+﻿using Plandemic.Common.Models.People;
 using Plandemic.Common.Services;
 
 namespace Plandemic.App.Controllers.Api

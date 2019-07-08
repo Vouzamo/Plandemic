@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Plandemic.Common.Models.People
 {
-    public class Team : Identifiable
+    public class Team : IdentifiableMultitenant
     {
         [Required, MaxLength(64)]
         public string Name { get; set; }

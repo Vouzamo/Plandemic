@@ -18,6 +18,7 @@ namespace Plandemic.Providers.Elasticsearch
 
             connectionSettings.DefaultMappingFor<Individual>(mapping => mapping
                 .IndexName("plandemic.individuals")
+                .IdProperty(doc => doc.CompositeId)
             );
 
             var elasticClient = new ElasticClient(connectionSettings);
